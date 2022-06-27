@@ -30,7 +30,7 @@ header > nav {
   color: var(--color-5);
 }
   
-header > nav > h1 {
+header > nav > h3 {
   font-size: 20px;
 }
   
