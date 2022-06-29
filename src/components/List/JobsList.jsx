@@ -6,12 +6,11 @@ class JobsList extends React.Component {
     lista: [],
   };
 
-  funcaoJobs = () => {
+  componentDidMount = () => {
     this.getJobs();
   };
 
   getJobs = () => {
-    debugger;
     const request = axios
       .get("https://labeninjas.herokuapp.com/jobs", {
         headers: { Authorization: "2d88d553-bd93-447d-871c-2849315c7ded" },
