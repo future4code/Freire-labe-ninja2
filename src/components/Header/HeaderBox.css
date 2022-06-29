@@ -12,7 +12,9 @@ header {
   width: 100%;
   height: 64px;
   
-  padding: 4px 16px;
+  padding: 4px 0;
+  padding-right: 16px;
+  padding-left: 16px;
  
   background-color: var(--color-1);
   
@@ -22,6 +24,7 @@ header {
 }
   
 header > .header-logo {
+  cursor: pointer;
   font-size: 32px;
   color: var(--color-5);
 }
@@ -51,6 +54,14 @@ header > nav > .cart-icon:active {
   transform: scale(0.9);
 }
 
+header > nav > h2 {
+  position: absolute;
+  right: 22px;
+  top: 4px;
+
+  font-size: 14px;
+}
+
 /*****************************/
 /*    CARRINHO DE COMPRAS    */
 /*****************************/
@@ -70,7 +81,7 @@ header > nav > .cart-icon:active {
 
 .trigger-cart-modal {
   cursor: pointer;
-  
+
   position: absolute;
   right: 16px;
 
