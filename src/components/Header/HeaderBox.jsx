@@ -15,6 +15,8 @@ export const HeaderBox = ({quantItensCart, setQuantItensCart}) => {
                 <h3>Como funciona?</h3>
                 <h3>Serviços</h3>
                 <HiOutlineShoppingCart className="cart-icon"/>
+
+                {quantItensCart > 0 && <h2>{quantItensCart}</h2>}                
             </nav>
 
             <input type="checkbox" className="trigger-cart-modal"/>
