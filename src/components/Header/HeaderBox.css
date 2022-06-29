@@ -38,9 +38,8 @@ header > nav {
   color: var(--color-5);
 }
   
-header > nav > h1 {
+header > nav > h3 {
   cursor: pointer;
-
   font-size: 20px;
 }
   

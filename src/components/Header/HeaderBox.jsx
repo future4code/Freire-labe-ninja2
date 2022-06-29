@@ -12,8 +12,8 @@ export const HeaderBox = ({quantItensCart, setQuantItensCart}) => {
             <SiCodingninjas className="header-logo"/>
 
             <nav>
-                <h1>Como funciona?</h1>
-                <h1>Serviços</h1>
+                <h3>Como funciona?</h3>
+                <h3>Serviços</h3>
                 <HiOutlineShoppingCart className="cart-icon"/>
 
                 {quantItensCart > 0 && <h2>{quantItensCart}</h2>}                
