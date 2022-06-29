@@ -2,8 +2,10 @@ import logo from './logo.svg';
 import { useState } from 'react';
 import './App.css';
 
+
 /*Components*/
 import { HeaderBox } from './components/Header/HeaderBox'
+
 
 function App() {
 
@@ -15,6 +17,10 @@ function App() {
                 quantItensCart={quantItensCart}
                 setQuantItensCart={setQuantItensCart}
             />
+
+            
+
+            
         </div>
     );
 }
