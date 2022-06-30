@@ -4,7 +4,8 @@ import './App.css';
 
 
 /*Components*/
-import { HeaderBox } from './components/Header/HeaderBox'
+import { HeaderBox } from './components/Header/HeaderBox';
+import FormJob from './components/Form/FormJob';
 
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
                 quantItensCart={quantItensCart}
                 setQuantItensCart={setQuantItensCart}
             />
-
             
+
+            <FormJob/>
 
             
         </div>

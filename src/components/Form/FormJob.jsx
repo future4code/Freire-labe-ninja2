@@ -1,96 +1,123 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import './FormJob.css';
+import { BASE_URL, headers } from '../../constants/urls';
 
 
-export const FormJob = () => {
 
-    const [createJob, setCreatJob]=useState({
+class FormJob extends React.Component{
+
+    state ={
         title:"",
         description:"",
         price:"",
         paymentMethods:[],
         dueDate:""
-    })
+    }
 
-    // requestJob = () =>{
-    //     const url = "https://labeninjas.herokuapp.com/jobs"
-    //     const body = {
-    //         title:createJob.title,
-    //         description:createJob.description,
-    //         price:createJob.price,
-    //         paymentMethods:createJob.paymentMethods,
-    //         dueDate:createJob.dueDate
-    //     }
-    //     axios.post(url,body,{
-    //         headers: {Authorization: "2d88d553-bd93-447d-871c-2849315c7ded"}
-    //     })
-    //         .then((res)=>{
-    //             alert(res.message)
-    //         })
-    //         .catch((err)=>{
-    //             alert(err.message)
-    //         })
-    // }
+    handleTitle = (e) =>{
+        this.setState({title: e.target.value})
+    }
+    handleDescriptiom = (e) =>{
+        this.setState({description: e.target.value})
+    }
+    handlePrice = (e) =>{
+        this.setState({price: e.target.value})
+    }
+    handlePaymentMethods = (e) =>{
+        
+            let lista = this.state.paymentMethods
+            let value = Array.from(e.target.selectedOptions, option => option.value)
+            const listaDePagamentos = [...this.state.paymentMethods,e.target.value]
+            
+              this.setState({ paymentMethods: listaDePagamentos })
+        
+    }
+    handleDueDate = (e) =>{
+        this.setState({dueDate: e.target.value})
+    }
+    
+
+    createJob = () =>{
+        
+        const body = {
+            title:this.state.title,
+            description:this.state.description,
+            price:this.state.price,
+            paymentMethods:this.state.paymentMethods,
+            dueDate:this.state.dueDate
+        }
+        axios.post(`${BASE_URL}/jobs`,body, headers)
+            .then((res)=>{
+                alert(res.message)
+            })
+            .catch((err)=>{
+                alert(err.message)
+            })
+    }
 
    
+    render() {
 
-    return (
-        <form>
-            
-                <label>Titulo</label>
-                <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    placeholder="Titulo"
-                    value={createJob.title}
-                    onChange = {(e)=> setCreatJob(e.target.value)}
-                />
-                <label>Descrição</label>
-                <input
-                    type="textarea"
-                    id="description"
-                    name="description"
-                    placeholder="Descrição"
-                    value={createJob.description}
-                    onChange= {(e)=> setCreatJob(e.target.value)}
-                />
-                <label>Preço</label>
-                <input
-                    type="number"
-                    id="price"
-                    name="price"
-                    placeholder="Preço"
-                    value={createJob.price}
-                    onChange = {(e)=> setCreatJob(e.target.value)}
-                />
-                <label>Metodo de Pagamento</label>
-                <select
-                    id= "paymentMethods"
+
+        return (
+            <form>
+                
+                    <label>Titulo</label>
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        placeholder="Titulo"
+                        value={this.state.title}
+                        onChange = {this.handleTitle}
+                    />
+                    <label>Descrição</label>
+                    <input
+                        type="textarea"
+                        id="description"
+                        name="description"
+                        placeholder="Descrição"
+                        value={this.state.description}
+                        onChange= {this.handleDescriptiom}
+                    />
+                    <label>Preço</label>
+                    <input
+                        type="number"
+                        id="price"
+                        name="price"
+                        placeholder="Preço"
+                        value={this.state.price}
+                        onChange = {this.handlePrice}
+                    />
+                    <label>Metodo de Pagamento</label>
+                    <select
                     multiple
-                    value={createJob.paymentMethods}
-                    
-                    placeholder="Selecione um ou mais"
-                    options={[
-                        {value:"pix", name:"Pix"},
-                        {value:"payPal", name:"PayPal"},
-                        {value:"dinheiro", name:"Dinheiro"}
-                    ]}
-                />
-                <label>Data de Vencimento</label>
-                <input
-                    type="date"
-                    id="dueDate"
-                    name="date"
-                    value={createJob.dueDate}
-                    onChange = {(e) => setCreatJob(e.target.value)}
-
-                />
-                <button>Enviar</button>
-            
-        </form>
-    )
+                    value={this.state.paymentMethods}
+                    onChange={this.handlePaymentMethods}
+                    >
+                        <option>Cartão de Débito</option>
+                        <option>Cartão de Crédito</option>
+                        <option>PayPal</option>
+                        <option>Boleto</option>
+                        <option>Pix</option>
+                    </select>
+                    <label>Data de Vencimento</label>
+                    <input
+                        type="date"
+                        id="dueDate"
+                        name="date"
+                        value={this.state.dueDate}
+                        onChange = {this.handleDueDate}
+    
+                    />
+                    <button onClick={this.createJob} >Enviar</button>
+                
+            </form>
+        )
+    }
 
 
 }
+
+export default FormJob
