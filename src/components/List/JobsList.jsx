@@ -3,12 +3,14 @@ import React from "react";
 import { CartItem } from "../Cart/CartItem";
 
 export const JobsList = ({ jobsList, selectedBrand, minimo, maximo, query }) => {
-
+  
   return (
     <div>
       {jobsList
         .filter(job => {
-          return job.name.toLowerCase().includes(query.toLowerCase())
+          return (job.title.toLowerCase().includes(query.toLowerCase())
+            || job.description.toLowerCase().includes(query.toLowerCase())
+          )
         })
         .filter(job => {
           return minimo === "" || job.price >= minimo
@@ -24,11 +26,11 @@ export const JobsList = ({ jobsList, selectedBrand, minimo, maximo, query }) => 
             case "MAIOR":
               return nextProduct.price - currentProduct.price
             case "CRESCENTE":
-              return nextProduct.name.localeCompare(currentProduct.name)
+              return -1 * nextProduct.title.localeCompare(currentProduct.title)
             case "DECRESCENTE":
-              return -1 * nextProduct.name.localeCompare(currentProduct.name)
+              return nextProduct.title.localeCompare(currentProduct.title)
             default:
-              return currentProduct.name - nextProduct.name
+              return currentProduct.title - nextProduct.title
           }
         })
         .map(job => {
