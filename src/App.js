@@ -15,6 +15,8 @@ function App() {
                 quantItensCart={quantItensCart}
                 setQuantItensCart={setQuantItensCart}
             />
+
+            
             
         </div>
     );

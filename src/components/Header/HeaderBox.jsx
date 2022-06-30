@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import './HeaderBox.css';
 
 /*Icons*/
 import { HiOutlineShoppingCart, HiShoppingCart } from 'react-icons/hi';
 import { SiCodingninjas } from 'react-icons/si';
 
+/*Components*/
+import { CartModal } from "../Cart/CartModal";
+
 export const HeaderBox = ({quantItensCart, setQuantItensCart}) => {
+
+    const [tempList, setTempList] = useState([])
 
     return (
         <header>
@@ -20,9 +25,14 @@ export const HeaderBox = ({quantItensCart, setQuantItensCart}) => {
             </nav>
 
             <input type="checkbox" className="trigger-cart-modal"/>
-            <div className="cart-modal">
-
-            </div>
+            <CartModal
+                className="cart-modal"
+                quantItensCart={quantItensCart} 
+                setQuantItensCart={setQuantItensCart} 
+                tempList={tempList} 
+                setTempList={setTempList}
+            />
+            
         </header>
     )
 }
