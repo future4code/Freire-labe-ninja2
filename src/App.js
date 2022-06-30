@@ -7,7 +7,7 @@ import { HeaderBox } from "./components/Header/HeaderBox";
 import { JobsList } from "./components/List/JobsList";
 import { SearchInput } from "./components/Search/SearchInput";
 import { JobFilter } from "./components/Filter/JobFilter";
-
+import FormJob from './components/Form/FormJob';
 
 function App() {
   const [quantItensCart, setQuantItensCart] = useState(0);
@@ -55,6 +55,7 @@ function App() {
           query={query}
           setQuery={setQuery}
         />
+
         <JobsList
           jobsList={jobsList}
           selectedBrand={selectedBrand}
@@ -62,7 +63,10 @@ function App() {
           maximo={maximo}
           query={query}
         />
+
+        <FormJob />
       </div>
+
     </div>
   );
 }
