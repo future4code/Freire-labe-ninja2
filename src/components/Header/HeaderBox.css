@@ -3,6 +3,8 @@
 /*****************************/
 
 header {
+  position: fixed;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,15 +12,21 @@ header {
   width: 100%;
   height: 64px;
   
-  padding: 4px 16px;
+  padding: 4px 0;
+  padding-right: 16px;
+  padding-left: 16px;
  
   background-color: var(--color-1);
   
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+
+  user-select: none;
 }
   
-header > img {
-  height: 100%;
+header > .header-logo {
+  cursor: pointer;
+  font-size: 32px;
+  color: var(--color-5);
 }
   
 header > nav {
@@ -31,9 +39,44 @@ header > nav {
 }
   
 header > nav > h3 {
+  cursor: pointer;
   font-size: 20px;
 }
   
-header > nav > svg {
+header > nav > .cart-icon {
   font-size: 32px;
+
+  transition: all 0.4s;
+}
+
+header > nav > .cart-icon:active {
+  transform: scale(0.9);
+}
+
+header > nav > h2 {
+  position: absolute;
+  right: 22px;
+  top: 4px;
+
+  font-size: 14px;
+}
+
+/*****************************/
+/*    CARRINHO DE COMPRAS    */
+/*****************************/
+
+.trigger-cart-modal {
+  cursor: pointer;
+
+  position: absolute;
+  right: 16px;
+
+  width: 32px;
+  height: 32px;
+
+  opacity: 0;
+}
+
+.trigger-cart-modal:checked ~ .cart-modal {
+  left: 0;
 }
