@@ -15,7 +15,6 @@ function App() {
         quantItensCart={quantItensCart}
         setQuantItensCart={setQuantItensCart}
       />
-
       <JobList />
     </div>
   );

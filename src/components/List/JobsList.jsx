@@ -11,10 +11,9 @@ class JobsList extends React.Component {
   };
 
   getJobs = () => {
-    const request = axios
-      .get("https://labeninjas.herokuapp.com/jobs", {
-        headers: { Authorization: "2d88d553-bd93-447d-871c-2849315c7ded" },
-      })
+    const request = axios.get("https://labeninjas.herokuapp.com/jobs", {
+      headers: { Authorization: "2d88d553-bd93-447d-871c-2849315c7ded" },
+    })
       .then((response) => {
         this.setState({ lista: response.data.jobs });
         console.log(this.state.lista);
