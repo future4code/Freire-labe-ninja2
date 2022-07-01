@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 
@@ -8,6 +8,7 @@ import { JobsList } from "./components/List/JobsList";
 import { SearchInput } from "./components/Search/SearchInput";
 import { JobFilter } from "./components/Filter/JobFilter";
 import FormJob from './components/Form/FormJob';
+import { BASE_URL, headers } from './constants/urls';
 
 function App() {
   const [quantItensCart, setQuantItensCart] = useState(0);
@@ -19,18 +20,20 @@ function App() {
   const [maximo, setMaximo] = useState(1000);
   const [query, setQuery] = useState("");
 
-  useEffect = () => {
-    axios.get("https://labeninjas.herokuapp.com/jobs", {
-      headers: { Authorization: "2d88d553-bd93-447d-871c-2849315c7ded" },
-    })
+  useEffect(() => {
+    const getJobs = async () => {
+      await axios.get(`${BASE_URL}/jobs`, headers)
       .then((response) => {
-        this.setJobsList({ jobsList: response.data.jobs });
         console.log(response.data.jobs);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  };
+        // essa linha não funciona
+        this.setJobsList({ jobsList: response.data.jobs });
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    };
+    getJobs();
+  }, []);
   return (
     <div className="App">
       <HeaderBox
