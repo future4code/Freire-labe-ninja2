@@ -1,0 +1,67 @@
+/*****************************/
+/*---Como funcionamos---*/
+/****************************/
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    /* background-color: #ffdaee; */
+    
+}
+
+p {
+    color: #5E548E; 
+}
+
+img {
+    border-radius: 80px;
+}
+
+.containerCard {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px;
+    height: 40vh;
+
+}
+
+.containerCard > p{
+  padding: 16px 0;
+  width: 50%;
+    
+}
+
+.containerCard > img {
+    height: 100%;
+    padding: 0 8px;
+}
+
+button {
+    border-radius: 4px;
+    border: none;
+    height: 20px;
+    width: 24%;
+    background-color: #5E548E;
+    color:#E0B1CB;
+    
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+.containerContentProducts{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* border: solid yellow; */
+    width: 35%;
+}
+
+.containerContentProducts > p {
+    text-align: fit-content;
+    padding: 0 6px;
+}

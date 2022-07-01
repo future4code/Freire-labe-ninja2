@@ -4,6 +4,8 @@ import './App.css';
 
 /*Components*/
 import { HeaderBox } from './components/Header/HeaderBox'
+import MainHowWork from './components/How we work/MainHowWork';
+
 
 function App() {
 
@@ -15,7 +17,10 @@ function App() {
                 quantItensCart={quantItensCart}
                 setQuantItensCart={setQuantItensCart}
             />
+
         </div>
+
+        
     );
 }
 
