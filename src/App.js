@@ -24,14 +24,14 @@ function App() {
   const [maximo, setMaximo] = useState(1000);
   const [query, setQuery] = useState("");
 
-  /*
+  
   useEffect(() => {
     const getJobs = async () => {
       await axios.get(`${BASE_URL}/jobs`, headers)
       .then((response) => {
         console.log(response.data.jobs);
         // essa linha não funciona
-        this.setJobsList({ jobsList: response.data.jobs });
+        setJobsList(response.data.jobs);
         })
         .catch((error) => {
           alert(error.message);
@@ -39,16 +39,16 @@ function App() {
     };
     getJobs();
   }, []);
-  */
+  
 
-  useEffect(() => {
-    axios.get(`${BASE_URL}/jobs`, headers)
-      .then(res => {
-        setJobsList(res.data)
-      }).catch(err => {
-        alert("Deu ruim")
-      })
-  },[])
+  // useEffect(() => {
+  //   axios.get(`${BASE_URL}/jobs`, headers)
+  //     .then(res => {
+  //       setJobsList(res.data)
+  //     }).catch(err => {
+  //       alert("Deu ruim")
+  //     })
+  // },[])
   
   return (
     <div className="App">
@@ -76,6 +76,10 @@ function App() {
 
         <JobsList
           jobsList={jobsList}
+          minimo={minimo}
+          maximo={maximo}
+          query={query}
+          selectedBrand={selectedBrand}
         />
 
         {page === "home" && <div></div>}
