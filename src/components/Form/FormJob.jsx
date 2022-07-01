@@ -3,14 +3,12 @@ import axios from "axios";
 import './FormJob.css';
 import { BASE_URL, headers } from '../../constants/urls';
 
-
-
 class FormJob extends React.Component{
 
     state ={
         title:"",
         description:"",
-        price:"",
+        price: "",
         paymentMethods:[],
         dueDate:""
     }
@@ -39,28 +37,37 @@ class FormJob extends React.Component{
         this.setState({dueDate: e.target.value})
     }    
 
-    createJob = () =>{
+    createJob = (e) =>{
+
+        e.preventDefault();
         
         const body = {
             title:this.state.title,
             description:this.state.description,
-            price:this.state.price,
+            price:Number(this.state.price),
             paymentMethods:this.state.paymentMethods,
             dueDate:this.state.dueDate
         }
         axios.post(`${BASE_URL}/jobs`,body, headers)
-            .then((res)=>{
-                alert(res.message)
+        .then((res)=>{
+            alert(res.data.message)
+
+            this.setState({
+                title:"",
+                description:"",
+                price: "",
+                paymentMethods:[],
+                dueDate:""
             })
-            .catch((err)=>{
-                alert(err.message)
-            })
+        })
+        .catch((err)=>{
+            alert(err.data.message)
+        })
     }
    
     render() {
         return (
-            <form>
-                
+            <form>                
                     <label>Titulo</label>
                     <input
                         type="text"

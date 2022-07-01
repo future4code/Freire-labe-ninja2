@@ -2,12 +2,13 @@ import React from "react";
 
 import { CartItem } from "../Cart/CartItem";
 
-export const JobsList = ({ jobsList, selectedBrand, minimo, maximo, query }) => {
-  
+/*Components*/
+import { JobItem } from "./JobItem";
+
+export const JobsList = ({ jobsList}) => {
   return (
     <div>
-      {jobsList
-        .filter(job => {
+      {jobsList.filter(job => {
           return (job.title.toLowerCase().includes(query.toLowerCase())
             || job.description.toLowerCase().includes(query.toLowerCase())
           )
@@ -40,6 +41,13 @@ export const JobsList = ({ jobsList, selectedBrand, minimo, maximo, query }) => 
           />
         })
       }
+
+      {jobsList.map((job) => (
+          <JobItem
+            key={job.id}
+            job={job}
+          />
+      ))}
     </div>
   )
 }
