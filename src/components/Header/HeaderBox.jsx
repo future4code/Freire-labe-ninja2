@@ -9,9 +9,6 @@ import { SiCodingninjas } from 'react-icons/si';
 import { CartModal } from "../Cart/CartModal";
 
 export const HeaderBox = ({quantItensCart, setQuantItensCart}) => {
-
-    const [tempList, setTempList] = useState([])
-
     return (
         <header>
             <SiCodingninjas className="header-logo"/>
@@ -29,10 +26,7 @@ export const HeaderBox = ({quantItensCart, setQuantItensCart}) => {
                 className="cart-modal"
                 quantItensCart={quantItensCart} 
                 setQuantItensCart={setQuantItensCart} 
-                tempList={tempList} 
-                setTempList={setTempList}
-            />
-            
+            />            
         </header>
     )
 }
