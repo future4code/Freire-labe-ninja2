@@ -24,19 +24,20 @@ class FormJob extends React.Component{
     handlePrice = (e) =>{
         this.setState({price: e.target.value})
     }
-    handlePaymentMethods = (e) =>{
-        
-            let lista = this.state.paymentMethods
-            let value = Array.from(e.target.selectedOptions, option => option.value)
-            const listaDePagamentos = [...this.state.paymentMethods,e.target.value]
-            
-              this.setState({ paymentMethods: listaDePagamentos })
-        
+    handlePaymentMethods = (e) =>{        
+        let lista = this.state.paymentMethods
+        let value = Array.from(e.target.selectedOptions, option => option.value)
+
+        if (lista.includes(e.target.value)){
+            lista.splice(lista.indexOf(e.target.value),1)
+        } else {
+            lista.push(e.target.value)
+        }
     }
+
     handleDueDate = (e) =>{
         this.setState({dueDate: e.target.value})
-    }
-    
+    }    
 
     createJob = () =>{
         
@@ -55,11 +56,8 @@ class FormJob extends React.Component{
                 alert(err.message)
             })
     }
-
    
     render() {
-
-
         return (
             <form>
                 
@@ -92,9 +90,10 @@ class FormJob extends React.Component{
                     />
                     <label>Metodo de Pagamento</label>
                     <select
-                    multiple
-                    value={this.state.paymentMethods}
-                    onChange={this.handlePaymentMethods}
+                        multiple
+                        size={5}
+                        value={this.state.paymentMethods}
+                        onChange={this.handlePaymentMethods}
                     >
                         <option>Cartão de Débito</option>
                         <option>Cartão de Crédito</option>
@@ -102,6 +101,7 @@ class FormJob extends React.Component{
                         <option>Boleto</option>
                         <option>Pix</option>
                     </select>
+
                     <label>Data de Vencimento</label>
                     <input
                         type="date"
@@ -111,7 +111,12 @@ class FormJob extends React.Component{
                         onChange = {this.handleDueDate}
     
                     />
+
+                    <br />
+                    
                     <button onClick={this.createJob} >Enviar</button>
+
+                    
                 
             </form>
         )
