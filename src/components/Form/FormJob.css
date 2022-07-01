@@ -1,17 +1,47 @@
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+form > input {
+    border-radius: var(--radius);
+
+    width: 100%;
+    max-width: var(--max-width);
+
+    padding: var(--padding);
+
+    font-size: var(--font-2);
 }
 
 select {
     outline: none;
     overflow: hidden;
+
+    font-size: var(--font-2);
+
+    width: 100%;
+    max-width: var(--max-width);
+
+    border-radius: var(--radius);
 }
 
 option {
     width: 100%;
-    padding: 8px;
+
+    padding: var(--padding);
 
     text-align: center;
+}
+
+button {
+    padding: var(--padding);
+
+    font-size: var(--font-3);
+
+    font-weight: bold;
+
+    border-radius: var(--radius);
 }
 

@@ -13,13 +13,18 @@ import { BASE_URL, headers } from './constants/urls';
 function App() {
   const [quantItensCart, setQuantItensCart] = useState(0);
 
+  /*Armazena o valor referente a qual págian deve ser renderizada (home-how-services-form)*/
+  const [page, setPage] = useState ("home")
+
   /*Armazena todos os produtos da loja*/
   const [jobsList, setJobsList] = useState([]);
+
   const [selectedBrand, setSelectedBrand] = useState("MENOR");
   const [minimo, setMinimo] = useState(0);
   const [maximo, setMaximo] = useState(1000);
   const [query, setQuery] = useState("");
 
+  /*
   useEffect(() => {
     const getJobs = async () => {
       await axios.get(`${BASE_URL}/jobs`, headers)
@@ -34,6 +39,17 @@ function App() {
     };
     getJobs();
   }, []);
+  */
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/jobs`, headers)
+      .then(res => {
+        setJobsList(res.data)
+      }).catch(err => {
+        alert("Deu ruim")
+      })
+  },[])
+  
   return (
     <div className="App">
       <HeaderBox
@@ -44,7 +60,6 @@ function App() {
         <SearchInput
           query={query}
           setQuery={setQuery}
-
         />
 
         <JobFilter
@@ -61,13 +76,13 @@ function App() {
 
         <JobsList
           jobsList={jobsList}
-          selectedBrand={selectedBrand}
-          minimo={minimo}
-          maximo={maximo}
-          query={query}
         />
 
-        <FormJob />
+        {page === "home" && <div></div>}
+        {page === "how" && <div></div>}
+        {page === "services" && <div></div>}
+        {page === "form" && <div></div>}
+        
       </div>
 
     </div>
