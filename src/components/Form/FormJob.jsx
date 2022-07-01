@@ -43,7 +43,7 @@ class FormJob extends React.Component{
         const body = {
             title:this.state.title,
             description:this.state.description,
-            price:this.state.price,
+            price:Number(this.state.price),
             paymentMethods:this.state.paymentMethods,
             dueDate:this.state.dueDate
         }

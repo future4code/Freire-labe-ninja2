@@ -7,7 +7,6 @@ import { HeaderBox } from "./components/Header/HeaderBox";
 import { JobsList } from "./components/List/JobsList";
 import { SearchInput } from "./components/Search/SearchInput";
 import { JobFilter } from "./components/Filter/JobFilter";
-import FormJob from './components/Form/FormJob';
 import { BASE_URL, headers } from './constants/urls';
 
 function App() {
@@ -67,7 +66,7 @@ function App() {
           query={query}
         />
 
-        <FormJob />
+        
       </div>
 
     </div>
