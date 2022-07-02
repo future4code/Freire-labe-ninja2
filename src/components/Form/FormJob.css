@@ -2,6 +2,16 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    border: solid var(--color-1);
+    border-radius: var(--radius);
+    background-color: var(--color-3);
+    height: 39em;
+    width: 40%;
+}
+form > label{
+    font-weight: bold;
+    font-size: var(--font-3);
 }
 
 form > input {
@@ -15,7 +25,8 @@ form > input {
     font-size: var(--font-2);
 }
 
-select {
+form>select {
+    
     outline: none;
     overflow: hidden;
 
@@ -25,17 +36,23 @@ select {
     max-width: var(--max-width);
 
     border-radius: var(--radius);
+    background-color: var(--color-5);
 }
 
-option {
+form>option {
     width: 100%;
 
     padding: var(--padding);
 
     text-align: center;
+
+    
+    
 }
 
-button {
+form > button {
+    height: 3rem;
+
     padding: var(--padding);
 
     font-size: var(--font-3);
@@ -43,5 +60,11 @@ button {
     font-weight: bold;
 
     border-radius: var(--radius);
+
+    
 }
+form>button:hover{
+    background-color: var(--color-1);
+}
+
 
