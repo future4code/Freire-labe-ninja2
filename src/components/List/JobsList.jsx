@@ -1,16 +1,12 @@
 import React from "react";
-
-import { CartItem } from "../Cart/CartItem";
+import './List.css';
 
 /*Components*/
 import { JobItem } from "./JobItem";
 
-/*style*/
-import './List.css';
-
-export const JobsList = ({ jobsList, minimo, maximo, query, selectedBrand}) => {
+export const JobsList = ({ jobsList, minimo, maximo, query, selectedBrand, setCartList, quantItensCart, setQuantItensCart}) => {
   return (
-    <div>
+    <div className="services-list">
       {jobsList.filter(job => {
           return (job.title.toLowerCase().includes(query.toLowerCase())
             || job.description.toLowerCase().includes(query.toLowerCase())
@@ -23,7 +19,6 @@ export const JobsList = ({ jobsList, minimo, maximo, query, selectedBrand}) => {
           return maximo === "" || job.price <= maximo
         })
         .sort((currentProduct, nextProduct) => {
-          console.log(selectedBrand)
           switch (selectedBrand) {
             case "MENOR":
               return currentProduct.price - nextProduct.price
@@ -38,20 +33,19 @@ export const JobsList = ({ jobsList, minimo, maximo, query, selectedBrand}) => {
           }
         })
         .map(job => {
-          return <JobItem 
-            key={job.id}
-            job={job}
-            className="card-job-item"
-          />
+          return (            
+            <JobItem
+              key={job.id}
+              job={job}
+
+              setCartList={setCartList}
+
+              quantItensCart={quantItensCart}
+              setQuantItensCart={setQuantItensCart}
+            />
+          )
         })
       }
-
-      {/* {jobsList.map((job) => (
-          <JobItem
-            key={job.id}
-            job={job}
-          />
-      ))} */}
     </div>
   )
 }

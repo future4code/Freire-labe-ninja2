@@ -1,34 +1,93 @@
-.card-job-item{
-    display: flex;
-    border: solid;
-}
-
-
-
-.job-item{
+.services-list {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    
-    gap: 10px;
-    
-    width: 300px;
+    justify-content: center;
+    gap: 8px;
 
-    padding: 16px;
+    padding: 8px 4px;
+}
+
+.job-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    min-width: 280px;
+    max-width: 320px;
+
+    width: 100%;
+    height: fit-content;
+
+    padding: 12px;
 
     text-align:center;
 
     color: var(--color-1);
 
     background-color: var(--color-4);
-
     
     border-radius: 16px;
 
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-
 }
 
-.job-item > .info-job-item {
+.job-item > .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.job-item > .description {
+    font-size: 12px;
+}
+
+.job-item > .infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin: 8px 0;
+    padding: var(--padding);
+
+    background-color: transparent;
+
+    border: solid var(--color-2);
+    border-radius: var(--radius);
+}
+
+.job-item > .value {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.job-item > .value > .price {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.job-item > .value > button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+    height: fit-content;
+
+    padding: var(--padding);
+}
+
+.job-item > .value > button > .little {
     font-size: 10px;
+}
+
+.job-item > .value > button > .big {
+    font-size: 20px;
 }
