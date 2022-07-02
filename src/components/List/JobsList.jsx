@@ -5,7 +5,10 @@ import { CartItem } from "../Cart/CartItem";
 /*Components*/
 import { JobItem } from "./JobItem";
 
-export const JobsList = ({ jobsList}) => {
+/*style*/
+import './List.css';
+
+export const JobsList = ({ jobsList, minimo, maximo, query, selectedBrand}) => {
   return (
     <div>
       {jobsList.filter(job => {
@@ -35,19 +38,20 @@ export const JobsList = ({ jobsList}) => {
           }
         })
         .map(job => {
-          return <CartItem
+          return <JobItem 
             key={job.id}
             job={job}
+            className="card-job-item"
           />
         })
       }
 
-      {jobsList.map((job) => (
+      {/* {jobsList.map((job) => (
           <JobItem
             key={job.id}
             job={job}
           />
-      ))}
+      ))} */}
     </div>
   )
 }
