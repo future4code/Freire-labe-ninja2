@@ -1,17 +1,32 @@
 :root {
-  --color-1: #231942;
-  --color-2: #5E548E;
-  --color-3: #9F86C0;
-  --color-4: #BE95C4;
-  --color-5: #E0B1CB;
+    --color-1: #231942;
+    --color-2: #5E548E;
+    --color-3: #9F86C0;
+    --color-4: #BE95C4;
+    --color-5: #E0B1CB;
+
+    --shadow: rgba(0,0,0,0.5);
+
+    --radius: 8px; 
+
+    --padding: 8px;
+
+    --font-1: 12px;
+    --font-2: 16px;
+    --font-3: 24px;
+
+    --max-width: 300px;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .App {
-  text-align: center;
+    text-align: center;
+}
+.Main{
+    margin-top: 80px;
 }
