@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 
-/*Components*/
+
+import MainHowWork from './components/How we work/MainHowWork';
 import { HeaderBox } from "./components/Header/HeaderBox";
 import { JobsList } from "./components/List/JobsList";
 import { SearchInput } from "./components/Search/SearchInput";
