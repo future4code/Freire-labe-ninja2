@@ -1,6 +1,9 @@
 import React from "react";
 import './List.css';
 
+/*Icons*/
+import { IoBagAdd } from "react-icons/io5";
+
 export const JobItem = ({job, setCartList, quantItensCart, setQuantItensCart}) => {
 
     const formatDate = (date) => {
@@ -58,21 +61,6 @@ export const JobItem = ({job, setCartList, quantItensCart, setQuantItensCart}) =
         setQuantItensCart(cartList.length);
     }
 
-    /*Verifica se o job já está no carrinho*/
-    const isInCart = (job) => {
-        let cartList = JSON.parse(localStorage.getItem("cartList"));
-
-        if(cartList.length > 0) {
-            for(let i = 0; i < cartList.length; i++) {
-                if(cartList[i].id === job.id) {
-                    console.log("Job já está no carrinho");
-                } else {
-                    console.log("Job não está no carrinho");
-                } 
-            }
-        }
-    }
-
     return (
         <div className="job-item">
             <span className="title">{job.title}</span>
@@ -87,8 +75,7 @@ export const JobItem = ({job, setCartList, quantItensCart, setQuantItensCart}) =
                 <span className="price">{formatPrice(job.price)}</span>
 
                 <button onClick={() => addToCart(job)}>
-                    <span className="little">Adicionar ao</span>
-                    <span className="big">Carrinho</span>
+                    <IoBagAdd />
                 </button>
             </div>
         </div>

@@ -5,11 +5,11 @@ import axios from "axios";
 
 import MainHowWork from './components/How we work/MainHowWork';
 import { HeaderBox } from "./components/Header/HeaderBox";
-import FormJob from './components/Form/FormJob';
 import { BASE_URL, headers } from './constants/urls';
 
 /*Pages*/
 import { Services } from "./pages/Services";
+import Form from "./pages/Form";
 
 function App() {
   const [quantItensCart, setQuantItensCart] = useState(0);
@@ -78,7 +78,7 @@ function App() {
             setQuantItensCart={setQuantItensCart}
           />
         }
-        {page === "form" && <div></div>}
+        {page === "form" && <Form />}
         
       </div>
 

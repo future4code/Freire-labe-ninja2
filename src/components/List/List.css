@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 12px;
 
     padding: 8px 4px;
 }
@@ -13,12 +13,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 2px;
     
     min-width: 280px;
     max-width: 320px;
 
     width: 100%;
-    height: fit-content;
+    height: 212px;
 
     padding: 12px;
 
@@ -47,16 +48,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 4px;
 
     width: 100%;
 
     margin: 8px 0;
-    padding: var(--padding);
+    padding: 8px;
 
-    background-color: transparent;
+    background-color: var(--color-2);
 
-    border: solid var(--color-2);
+    border: none;
     border-radius: var(--radius);
+}
+
+.job-item > .infos > span {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: var(--color-4);
 }
 
 .job-item > .value {
@@ -81,13 +90,13 @@
     width: fit-content;
     height: fit-content;
 
-    padding: var(--padding);
+    padding: 8px;
+
+    border: solid var(--color-1);
+    border-radius: var(--radius);
 }
 
-.job-item > .value > button > .little {
-    font-size: 10px;
-}
-
-.job-item > .value > button > .big {
-    font-size: 20px;
+.job-item > .value > button > svg {
+    font-size: 28px;
+    color: var(--color-1);
 }

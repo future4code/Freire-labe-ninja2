@@ -13,8 +13,6 @@ export const SearchInput = ({query, setQuery}) => {
                 value={query} 
                 onChange={(e) => setQuery(e.target.value)} 
             />
-
-            <ImSearch className="searchIcon"/>
         </div>
     )
 }
