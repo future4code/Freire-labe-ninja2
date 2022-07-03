@@ -13,7 +13,6 @@ export const JobFilter = ({
     // Update seletedBrand state
     const handleBrandChange = (event) => {
         setSelectedBrand(event.target.value);
-        console.log(selectedBrand)
     };
     return (
         <div className='ProductFilter'>
