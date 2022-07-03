@@ -1,4 +1,5 @@
 import React from "react";
+import './pages.css';
 
 /*Components*/
 import { JobsList } from "../components/List/JobsList";
@@ -7,7 +8,7 @@ import { JobFilter } from "../components/Filter/JobFilter";
 
 export const Services = ({jobsList, setJobsList, selectedBrand,setSelectedBrand, minimo, setMinimo, maximo, setMaximo, query, setQuery, cartList, setCartList, quantItensCart, setQuantItensCart}) => {
     return (
-        <div>
+        <div className="page-service">
             <SearchInput
                 query={query}
                 setQuery={setQuery}

@@ -9,7 +9,6 @@ function MainHowWork() {
       <div className="containerCard">
         <img src={mktplace} alt="marketplace" />
         <p>
-          {" "}
           Nós somos um empresa focada em realizar encontros entre pessoas que
           oferecem servicos e aquelas que contratam, evitando a burocracia das
           mídias tradicionais com segurança e garantia de qualidade. Além disso,
@@ -17,25 +16,30 @@ function MainHowWork() {
         </p>
       </div>
 
-      <div className="containerCard">
-        <img src={service} alt="serviço descrito na imagem" />
-        <div className="containerContentProducts">
+      <div className="how-links">
+        <div className="btn-ninja">
           <p>
-            Se você está procurando por um serviço e não sabe onde encontrar ou
-            a pesquisa não te leva a lugar nenhum. Nós somos a sua solução!
-            Basta acessar a lista de serviços oferecido pelos nossos ninjas
-            parceiros.
+            Se você está procurando por um produto e/ou serviço e a pesquisa não te leva a lugar nenhum?
           </p>
           <button>Contrate um ninja</button>
         </div>
-        <div div className="containerContentProducts">
+        <div className="btn-ninja">
           <p>
-            Se você está querendo oferecer seus serviços a um maior número de
-            pessoas de forma simples, rápida e barata. Se torne um ninja
-            colaborador!
+            Você quer oferecer seus produtos e/ou serviços a um maior número de pessoas de forma simples e rápida?
           </p>
           <button>Vire um ninja</button>
         </div>
+      </div>
+
+      <div className="containerCard">
+        <p>
+          Nós somos um empresa focada em realizar encontros entre pessoas que
+          oferecem servicos e aquelas que contratam, evitando a burocracia das
+          mídias tradicionais com segurança e garantia de qualidade. Além disso,
+          temos a menores taxas do mercado!
+        </p>
+        
+        <img src={service} alt="serviço descrito na imagem" />  
       </div>
     </section>
   );
