@@ -1,13 +1,13 @@
 import React from "react";
+import './List.css';
 
-import { CartItem } from "../Cart/CartItem";
+/*Components*/
+import { JobItem } from "./JobItem";
 
-export const JobsList = ({ jobsList, selectedBrand, minimo, maximo, query }) => {
-  
+export const JobsList = ({ jobsList, minimo, maximo, query, selectedBrand, setCartList, quantItensCart, setQuantItensCart}) => {
   return (
-    <div>
-      {jobsList
-        .filter(job => {
+    <div className="services-list">
+      {jobsList.filter(job => {
           return (job.title.toLowerCase().includes(query.toLowerCase())
             || job.description.toLowerCase().includes(query.toLowerCase())
           )
@@ -19,7 +19,6 @@ export const JobsList = ({ jobsList, selectedBrand, minimo, maximo, query }) => 
           return maximo === "" || job.price <= maximo
         })
         .sort((currentProduct, nextProduct) => {
-          console.log(selectedBrand)
           switch (selectedBrand) {
             case "MENOR":
               return currentProduct.price - nextProduct.price
@@ -34,10 +33,17 @@ export const JobsList = ({ jobsList, selectedBrand, minimo, maximo, query }) => 
           }
         })
         .map(job => {
-          return <CartItem
-            key={job.id}
-            job={job}
-          />
+          return (            
+            <JobItem
+              key={job.id}
+              job={job}
+
+              setCartList={setCartList}
+
+              quantItensCart={quantItensCart}
+              setQuantItensCart={setQuantItensCart}
+            />
+          )
         })
       }
     </div>

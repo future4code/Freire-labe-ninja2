@@ -1,0 +1,224 @@
+/*****************************/
+/*---Como funcionamos---*/
+/****************************/
+/*
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;    
+}
+
+p {
+    font-size: var(--font-2);
+    font-weight: 500;
+
+    color: var(--color-4);
+}
+
+img {
+    border-radius: 80px;
+}
+
+.containerCard {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px;
+    height: 40vh;
+}
+
+.containerCard > p{
+  padding: 16px 0;
+  width: 50%;
+    
+}
+
+.containerCard > img {
+    height: 100%;
+    padding: 0 8px;
+}
+
+button {
+    border-radius: 4px;
+    border: none;
+    height: 20px;
+    width: 24%;
+    background-color: #5E548E;
+    color:#E0B1CB;
+    
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+.containerContentProducts{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* border: solid yellow; 
+    width: 35%;
+}
+
+.containerContentProducts > p {
+    text-align: fit-content;
+    padding: 0 6px;
+}
+
+/******************************************/
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+
+    padding: 8px 24px;
+}
+
+section > .containerCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    border-radius: 16px;
+
+    background-color: var(--color-4);
+
+    overflow: hidden;
+
+    box-shadow: 0px 0px 8px var(--shadow);
+}
+
+section > .containerCard > img {
+    width: 100%;
+
+    border: none;
+
+    overflow: hidden;
+}
+
+section > .containerCard > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 8px 16px;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    border: none;
+
+    line-height: 110%;
+
+    color: var(--color-1);
+}
+
+section > .how-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    width: 100%;
+    height: fit-content;
+
+    padding: 8px;
+}
+
+section > .how-links > .btn-ninja {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    width: 100%;
+    height: 196px;
+
+    max-width: 320px;
+
+    border: solid var(--color-4);
+    border-radius: var(--radius);
+
+    overflow: hidden;
+}
+
+section > .how-links > .btn-ninja > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 8px 16px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: var(--color-4);
+}
+
+section > .how-links > .btn-ninja > button {
+    width: 100%;
+    height: 75%;
+
+    padding: 8px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    color: var(--color-1);
+
+    border: none;
+
+    background-color: var(--color-4);
+}
+
+/******************************************/
+/*              RESPONSIVE                */
+/******************************************/
+
+@media (max-width: 640px) {
+    section {
+        gap: 4px;    
+        padding: 0 16px 16px 16px;
+    }
+
+    section > .containerCard {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    section > .containerCard > p {    
+        font-size: 14px;    
+        line-height: 130%;
+    }
+    
+    section > .how-links > .btn-ninja {
+        height: 196px;
+    }
+    
+    section > .how-links > .btn-ninja > p {    
+        font-size: calc(4px + 2vmin);
+        padding: 4px;
+    }
+    
+    section > .how-links > .btn-ninja > button {    
+        font-size: 16px;
+        min-height: 48px;
+        padding: 0 8px;
+    }
+}

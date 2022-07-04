@@ -1,0 +1,119 @@
+/*************************************/
+/*             SERVICES              */
+/*************************************/
+.page-service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 16px;
+}
+
+/*************************************/
+/*               FORM                */
+/*************************************/
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    border: none;
+    border-radius: var(--radius);
+
+    background-color: transparent;
+    
+    height: 39em;
+    width: 100%;
+
+    max-width: 480px;
+
+    padding: 8px 16px;
+}
+
+form > label{
+    margin-bottom: -8px;
+
+    font-weight: bold;
+    font-size: 18px;
+
+    color: var(--color-4);
+}
+
+form > input {
+    border: none;
+    border-radius: var(--radius);
+
+    width: 100%;
+    max-width: var(--max-width);
+
+    padding: 8px 16px;
+
+    font-size: var(--font-2);
+
+    outline: none;
+}
+
+form > textarea {
+    background-color: var(--color-4);
+    border-radius: var(--radius);
+
+    width: 100%;
+    max-width: var(--max-width);
+
+    padding: var(--padding);
+
+    font-size: var(--font-2);
+
+    outline: none;
+}
+
+form > select {    
+    outline: none;
+    overflow: hidden;
+
+    font-size: var(--font-2);
+
+    width: 100%;
+    max-width: var(--max-width);
+
+    padding: 4px;
+
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--color-4);
+}
+
+form > select > option {
+    width: 100%;
+    height: fit-content;
+
+    padding: 2px;
+
+    text-align: center;
+    
+    font-size: 16px;
+    font-weight: 500;
+}
+
+form > button {
+    width: 100%;
+    height: fit-content;
+
+    padding: 12px;
+
+    font-size: 32px;
+    font-weight: bold;
+
+    color: var(--color-1);
+
+    border-radius: var(--radius);
+
+    transition: all 0.2s;
+}
+
+form > button:hover{
+    background-color: var(--color-1);
+    color: var(--color-4);
+}
