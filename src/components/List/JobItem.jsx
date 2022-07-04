@@ -37,8 +37,7 @@ export const JobItem = ({job, setCartList, quantItensCart, setQuantItensCart}) =
                 jobExists = true;
                 alert("O item já está no carrinho!");
             }
-        }
-        );
+        });
 
         if (!jobExists) {
             cartList.push(job);
