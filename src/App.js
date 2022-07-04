@@ -57,7 +57,7 @@ function App() {
         
 
         {page === "home" && <div></div>}
-        {page === "how" && <MainHowWork />}
+        {page === "how" && <MainHowWork setPage={setPage} />}
         {page === "services" && 
           <Services
             jobsList={jobsList}
