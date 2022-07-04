@@ -17,17 +17,17 @@ function MainHowWork({setPage}) {
       </div>
 
       <div className="how-links">
-        <div className="btn-ninja">
+        <div className="btn-ninja" onClick={() => setPage("services")}>
           <p>
             Se você está procurando por um produto e/ou serviço e a pesquisa não te leva a lugar nenhum?
           </p>
-          <button onClick={() => setPage("services")}>Contrate um ninja</button>
+          <button>Contrate um ninja</button>
         </div>
-        <div className="btn-ninja">
+        <div className="btn-ninja" onClick={() => setPage("form")}>
           <p>
             Você quer oferecer seus produtos e/ou serviços a um maior número de pessoas de forma simples e rápida?
           </p>
-          <button onClick={() => setPage("services")}>Vire um ninja</button>
+          <button>Vire um ninja</button>
         </div>
       </div>
 
