@@ -15,7 +15,7 @@ function App() {
   const [quantItensCart, setQuantItensCart] = useState(0);
 
   /*Armazena o valor referente a qual págian deve ser renderizada (home-how-services-form)*/
-  const [page, setPage] = useState ("home")
+  const [page, setPage] = useState ("how")
 
   /*Armazena todos os produtos da loja*/
   const [jobsList, setJobsList] = useState([])
@@ -25,7 +25,7 @@ function App() {
 
   const [selectedBrand, setSelectedBrand] = useState("MENOR");
   const [minimo, setMinimo] = useState(0);
-  const [maximo, setMaximo] = useState(1000);
+  const [maximo, setMaximo] = useState(100000);
   const [query, setQuery] = useState("");
   
   useEffect(() => {
