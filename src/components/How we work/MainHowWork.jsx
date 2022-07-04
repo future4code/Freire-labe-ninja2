@@ -3,7 +3,7 @@ import "./MainHowWork.css";
 import mktplace from "./Assets/mktplace.png";
 import service from "./Assets/services.png";
 
-function MainHowWork() {
+function MainHowWork({setPage}) {
   return (
     <section>
       <div className="containerCard">
@@ -21,13 +21,13 @@ function MainHowWork() {
           <p>
             Se você está procurando por um produto e/ou serviço e a pesquisa não te leva a lugar nenhum?
           </p>
-          <button>Contrate um ninja</button>
+          <button onClick={() => setPage("services")}>Contrate um ninja</button>
         </div>
         <div className="btn-ninja">
           <p>
             Você quer oferecer seus produtos e/ou serviços a um maior número de pessoas de forma simples e rápida?
           </p>
-          <button>Vire um ninja</button>
+          <button onClick={() => setPage("services")}>Vire um ninja</button>
         </div>
       </div>
 
