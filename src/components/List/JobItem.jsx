@@ -29,7 +29,7 @@ export const JobItem = ({job, setCartList, quantItensCart, setQuantItensCart}) =
     }
 
     const addToCart = (job) => {
-        let cartList = JSON.parse(localStorage.getItem("cartList"));
+        let cartList = JSON.parse(localStorage.getItem("cartList"))?JSON.parse(localStorage.getItem("cartList")):[];
         let jobExists = false;
 
         cartList.forEach(item => {
