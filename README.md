@@ -26,7 +26,4 @@ Imagens:
 
 
 Link Surge:
-mushy-development.surge.sh
-
-
-
+http://labeninjas-jobs.surge.sh
