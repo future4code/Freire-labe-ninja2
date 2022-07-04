@@ -6,10 +6,12 @@ Funcionalidades do projeto:
 
  Cadastrar um serviço para ser oferecido;
  Filtrar serviços oferecidos;
- Adicionar serviços ao carrinho de compras;
  Efetuar compra dos serviços adicionados ao carrinho;
  Deletar o serviço presente ao carrinho;
  Responsividade;
+
+Ajustes nas funcionalidades: 
+Adicionar serviços ao carrinho de compras.
 
 Tecnologias utilizadas: React, JavaScript e Css.
 
@@ -24,6 +26,7 @@ Imagens:
 
 
 Link Surge:
+mushy-development.surge.sh
 
 
 
