@@ -30,35 +30,23 @@ export const JobItem = ({job, setCartList, quantItensCart, setQuantItensCart}) =
 
     const addToCart = (job) => {
         let cartList = JSON.parse(localStorage.getItem("cartList"));
+        let jobExists = false;
 
-        if (cartList !== null) {
-            let jobExists = false;
-            cartList.forEach(item => {
-                if (item.id === job.id) {
-                    jobExists = true;
-                } else {
-                    jobExists = false;
-                }
+        cartList.forEach(item => {
+            if (item.id === job.id) {
+                jobExists = true;
+                alert("O item já está no carrinho!");
             }
-            );
-
-            if (!jobExists) {
-                cartList.push(job);
-                localStorage.setItem("cartList", JSON.stringify(cartList));
-            } else {
-                cartList.forEach(item => {
-                    if (item.id === job.id) {
-                        item.quantity += 1;
-                    } else {
-                        jobExists = false;
-                    }
-                }
-                );
-            }            
         }
+        );
 
-        setCartList(cartList);
-        setQuantItensCart(cartList.length);
+        if (!jobExists) {
+            cartList.push(job);
+            localStorage.setItem("cartList", JSON.stringify(cartList));
+
+            setCartList(cartList);
+            setQuantItensCart(cartList.length);
+        }          
     }
 
     return (

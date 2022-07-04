@@ -47,23 +47,36 @@ class Form extends React.Component{
             paymentMethods:this.state.paymentMethods,
             dueDate:this.state.dueDate
         }
-        axios.post(`${BASE_URL}/jobs`,body, headers)
-        .then((res)=>{
-            alert(res.data.message)
 
-            this.setState({
-                title:"",
-                description:"",
-                price: "",
-                paymentMethods:[],
-                dueDate:""
+        if (body.title === "") {
+            alert("Preencha o titulo!")
+        } else if (body.description === "") {
+            alert("Preencha a descrição!")
+        } else if (body.price === 0) {
+            alert("Preencha o preço!")
+        } else if (body.paymentMethods.length === 0) {
+            alert("Escolha pelo menos UM metodo de pagamento!")
+        } else if (body.dueDate === "") {
+            alert("Preencha a data de vencimento!")
+        } else {
+            axios.post(`${BASE_URL}/jobs`,body, headers)
+            .then((res)=>{
+                alert(res.data.message)
+
+                this.setState({
+                    title:"",
+                    description:"",
+                    price: "",
+                    paymentMethods:[],
+                    dueDate:""
+                })
+
+                window.location.reload();
             })
-
-
-        })
-        .catch((err)=>{
-            alert(err.data.message)
-        })
+            .catch((err)=>{
+                alert(err.data.message)
+            })
+        }
     }
    
     render() {
