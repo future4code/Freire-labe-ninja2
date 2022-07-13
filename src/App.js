@@ -1,23 +1,87 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import axios from "axios";
+
+
+import MainHowWork from './components/How we work/MainHowWork';
+import { HeaderBox } from "./components/Header/HeaderBox";
+import { BASE_URL, headers } from './constants/urls';
+
+/*Pages*/
+import { Services } from "./pages/Services";
+import Form from "./pages/Form";
 
 function App() {
+  const [quantItensCart, setQuantItensCart] = useState(0);
+
+  /*Armazena o valor referente a qual págian deve ser renderizada (home-how-services-form)*/
+  const [page, setPage] = useState ("how")
+
+  /*Armazena todos os produtos da loja*/
+  const [jobsList, setJobsList] = useState([])
+
+  /*Armazena os produtos adicionados ao carrinho*/
+  const [cartList,setCartList] = useState([])
+
+  const [selectedBrand, setSelectedBrand] = useState("MENOR");
+  const [minimo, setMinimo] = useState(0);
+  const [maximo, setMaximo] = useState(100000);
+  const [query, setQuery] = useState("");
+  
+  useEffect(() => {
+    const getJobs = async () => {
+      await axios.get(`${BASE_URL}/jobs`, headers)
+      .then((response) => {
+        setJobsList(response.data.jobs);
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    };
+    getJobs();
+  }, []);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HeaderBox
+        quantItensCart={quantItensCart}
+        setQuantItensCart={setQuantItensCart}
+
+        cartList={cartList}
+        setCartList={setCartList}
+
+        setPage={setPage}
+      />
+
+      <div className="Main">
+        
+
+        {page === "home" && <div></div>}
+        {page === "how" && <MainHowWork setPage={setPage} />}
+        {page === "services" && 
+          <Services
+            jobsList={jobsList}
+            setJobsList={setJobsList}
+            selectedBrand={selectedBrand}
+            setSelectedBrand={setSelectedBrand}
+            minimo={minimo}
+            setMinimo={setMinimo}
+            maximo={maximo}
+            setMaximo={setMaximo}
+            query={query}
+            setQuery={setQuery}
+
+            cartList={cartList}
+            setCartList={setCartList}
+
+            quantItensCart={quantItensCart}
+            setQuantItensCart={setQuantItensCart}
+          />
+        }
+        {page === "form" && <Form />}
+        
+      </div>
+
     </div>
   );
 }
